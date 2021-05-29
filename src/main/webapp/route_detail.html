@@ -13,6 +13,11 @@
    
     </script>
 </head>
+<style>
+    a:hover{
+        text-decoration: none;
+    }
+</style>
 
 <body>
 <!--引入头部-->
@@ -27,40 +32,7 @@
         </div>
         <div class="prosum_box">
             <dl class="prosum_left" id="prosum_left">
-                <!--<dt>
-                    <img alt="" class="big_img" src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-                </dt>
-                <dd>
-                    <a class="up_img up_img_disable"></a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m40920d0669855e745d97f9ad1df966ebb.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m20920d0669855e745d97f9ad1df966ebb.jpg">
-                    </a>
-                    <a title="" class="little_img cur_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m29788843d72171643297ccc033d9288ee.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m46d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m26d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m45ea00f6eba562a767b5095bbf8cffe07.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m25ea00f6eba562a767b5095bbf8cffe07.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4265ec488cd1bc7ce749bc8c9b34b87bc.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2265ec488cd1bc7ce749bc8c9b34b87bc.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4e7e964909d7dd1a9f6e5494d4dc0c847.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2e7e964909d7dd1a9f6e5494d4dc0c847.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m467db00e1b76718fab0fe8b96e10f4d35.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m267db00e1b76718fab0fe8b96e10f4d35.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m487bbbc6e43eba6aa6a36cc1a182f7a20.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m287bbbc6e43eba6aa6a36cc1a182f7a20.jpg">
-                    </a>
-                    <a class="down_img down_img_disable" style="margin-bottom: 0;"></a>
-                </dd> -->
+
             </dl>
             <div class="prosum_right">
                <p class="pros_title" id="pro_title">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
@@ -74,12 +46,20 @@
                     <p class="price"><strong id="price">¥2699.00</strong><span>起</span></p>
                     <p class="collect">
                         <a class="btn" id="show_favorite" onclick = addFavorite()><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
-
-                        
                         <span id="collect">已收藏100次</span>
+                        <a style="float:right;width: 200px;height: 50px;text-align: center;font-weight: bold;padding-top: 15px;" onclick="toOrder()">现在下单</a>
                     </p>
                 </div>        
             </div>
+        </div>
+        <div id="refundDiv" style="text-align: center;font-weight: bold;font-size: 20px;line-height: 50px;">
+            订单编号：<span id="orderNum"></span>
+            <br>
+            订单状态：<span id="orderStatus"></span>
+            <br>
+            申请退款原因：<input type="text" id="orderDesc" name="orderDesc" placeholder="请输入" style="text-align: center;border-bottom:solid black 1px;height: 35px;width:500px;">
+            <br><br>
+            <button onclick="refund()" style="color: #fff;background-color: #ff4848;width: 200px;border-radius: 4px">申请退款</button>
         </div>
         <div class="you_need_konw">
             <span>旅游须知</span>
@@ -116,6 +96,7 @@
     <!--导入布局js，共享header和footer-->
     <script type="text/javascript" src="js/include.js"></script>
     <script>
+        var fflag=true;
     $(document).ready(function() {
         //焦点图效果
         //点击图片切换图片
@@ -175,11 +156,41 @@
             $('.big_img').attr('src', big_pic);
         }
     }
+
+    function toOrder(){
+        $.post("user/findUser",{},function(user){
+            if(user == null){
+                //未登录
+                alert("请登录后浏览");
+                location.href = "login.html";
+            }else{
+                location.href='order.html?rid='+getParameter("rid");
+            }
+        });
+    }
+
+    function refund(){
+        var rid = getParameter("rid");
+        $.post("order/refund",{orderNum:$("#orderNum").text(),orderDesc:$("#orderDesc").val()},function(data){
+            $.post("order/findStatus",{rid:rid},function(data){
+                $("#orderStatus").text(data.orderStatus);
+                $("#orderNum").text(data.orderNum);
+            });
+        });
+    }
     
     $(function(){
+        $("#refundDiv").css("display","none");
     	var rid = getParameter("rid");
+        $.post("order/findStatus",{rid:rid},function(data){
+            if(data!=""){
+                $("#refundDiv").css("display","block");
+            }
+            $("#orderStatus").text(data.orderStatus);
+            $("#orderNum").text(data.orderNum);
+        });
     	$.post("route/findOne",{rid:rid},function(data){
-    		var title = data.rname+"二次确认";
+    		var title = data.rname;
     		$("#pros_title").html(title);
     		$("#pro_title").html(title);
     		$("#hot").html(data.routeIntroduce);
@@ -188,62 +199,31 @@
     		$("#consphone").html(data.seller.consphone);
     		$("#address").html(data.seller.address);
     		$("#price").html("￥"+data.price);
-    		/*<dt>
-            <img alt="" class="big_img" src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-            </dt>
-            <dd>
-                <a class="up_img up_img_disable"></a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m40920d0669855e745d97f9ad1df966ebb.jpg">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m20920d0669855e745d97f9ad1df966ebb.jpg">
-                </a>
-                <a title="" class="little_img cur_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m29788843d72171643297ccc033d9288ee.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m46d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m26d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m45ea00f6eba562a767b5095bbf8cffe07.jpg" style="display:none;">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m25ea00f6eba562a767b5095bbf8cffe07.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4265ec488cd1bc7ce749bc8c9b34b87bc.jpg" style="display:none;">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2265ec488cd1bc7ce749bc8c9b34b87bc.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4e7e964909d7dd1a9f6e5494d4dc0c847.jpg" style="display:none;">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2e7e964909d7dd1a9f6e5494d4dc0c847.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m467db00e1b76718fab0fe8b96e10f4d35.jpg" style="display:none;">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m267db00e1b76718fab0fe8b96e10f4d35.jpg">
-                </a>
-                <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m487bbbc6e43eba6aa6a36cc1a182f7a20.jpg" style="display:none;">
-                    <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m287bbbc6e43eba6aa6a36cc1a182f7a20.jpg">
-                </a>
-                <a class="down_img down_img_disable" style="margin-bottom: 0;"></a>
-            </dd>*/
-            var dt_dd = '<dt>'+
-            '<img alt="" class="big_img" src="'+data.routeImgList[0].bigPic+'">'+
-            '</dt>';
-            dt_dd += '<dd>'+
-                '<a class="up_img up_img_disable"></a>';
-            for(var i = 0;i < data.routeImgList.length;i ++){
-            	if(i>=4){
-            		dt_dd += '<a title="" class="little_img" data-bigpic="'+data.routeImgList[i].bigPic+'" style="display:none;>'+
-                    '<img src="'+data.routeImgList[i].smallPic+'">'+
-                '</a>';
-            	}else{
-            		
-            	dt_dd += '<a title="" class="little_img" data-bigpic="'+data.routeImgList[i].bigPic+'">'+
-                    '<img src="'+data.routeImgList[i].smallPic+'">'+
-                '</a>';
-            	}
+
+    		if(0 != data.routeImgList.length) {
+                var dt_dd = '<dt>' +
+                    '<img alt="" class="big_img" src="' + data.routeImgList[0].bigPic + '">' +
+                    '</dt>';
+                dt_dd += '<dd>' +
+                    '<a class="up_img up_img_disable"></a>';
+                for (var i = 0; i < data.routeImgList.length; i++) {
+                    if (i >= 4) {
+                        dt_dd += '<a title="" class="little_img" data-bigpic="' + data.routeImgList[i].bigPic + '" style="display:none;>' +
+                            '<img src="' + data.routeImgList[i].smallPic + '">' +
+                            '</a>';
+                    } else {
+
+                        dt_dd += '<a title="" class="little_img" data-bigpic="' + data.routeImgList[i].bigPic + '">' +
+                            '<img src="' + data.routeImgList[i].smallPic + '">' +
+                            '</a>';
+                    }
+                }
+                dt_dd += '<a class="down_img down_img_disable" style="margin-bottom: 0;"></a>' +
+                    '</dd>';
             }
-            dt_dd += '<a class="down_img down_img_disable" style="margin-bottom: 0;"></a>'+
-            '</dd>';
-            
-            $("#prosum_left").html(dt_dd);
-            goImg();
+                $("#prosum_left").html(dt_dd);
+                goImg();
+
     	});
     });
     
@@ -256,17 +236,10 @@
 				$("#show_favorite").addClass("already");
 				//$("#show_favorite").attr("disabled","disabled");
 				$("#show_favorite").html('<i class="glyphicon glyphicon-heart-empty"></i>已收藏');
-				$("#show_favorite").removeAttr("onclick");
+				fflag=false
+				// $("#show_favorite").removeAttr("onclick");
     		}
     			//未收藏，展示为红色
-    	});
-    	
-    	$.post("user/findUser",{},function(user){
-    		if(user == null){
-    			//未登录
-    			alert("请登录后浏览");
-    			location.href = "http://localhost:8080/heima1/login.html";
-    		}
     	});
     	
     	$.post("route/findCollect",{rid:rid},function(data){
@@ -276,10 +249,18 @@
     });
     
     function addFavorite(){
-    	var rid = getParameter("rid");
-    	$.post("route/addFavorite",{rid:rid},function(data){
-    		location.reload();
-    	});
+        $.post("user/findUser",{},function(user){
+            if(user == null){
+                //未登录
+                alert("请登录后浏览");
+                location.href = "login.html";
+            }else{
+                var rid = getParameter("rid");
+                $.post("route/addFavorite",{rid:rid,flag:fflag},function(data){
+                    location.reload();
+                });
+            }
+        });
     }
     </script>
 </body>

@@ -8,10 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.hqs.domain.Favorite;
-import com.hqs.domain.PageBean;
-import com.hqs.domain.Route;
-import com.hqs.domain.User;
+import com.hqs.domain.*;
 import com.hqs.service.FavoriteService;
 import com.hqs.service.RouteService;
 import com.hqs.serviceImp.FavoriteServiceImp;
@@ -40,7 +37,7 @@ public class RouteServlet extends BaseServlet {
 		int cid = 0;
 		int currentPage = 0;//当前页数
 		int pageSize = 0;
-		
+
 		if(scid != null && scid.length() > 0 && !"null".equals(scid)) {
 			cid = Integer.parseInt(scid);
 		}
@@ -57,9 +54,10 @@ public class RouteServlet extends BaseServlet {
 		if("undefined".equals(rname)||"null".equals(rname)) {
 			rname = null;
 		}
-		
+
 		PageBean<Route> page = service.findPageQuery(cid,currentPage, pageSize, rname);
-	
+//		PageBean<Product> page = service.findAllProduct(cid,currentPage, pageSize, rname);
+
 		writeValue(page, response);
 	}
 	
@@ -88,6 +86,7 @@ public class RouteServlet extends BaseServlet {
 	public void addFavorite(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String rid = request.getParameter("rid");
+		boolean flag = Boolean.valueOf(request.getParameter("flag"));
 		int uid = 0;
 		User user = (User)request.getSession().getAttribute("user");
 		
@@ -97,7 +96,7 @@ public class RouteServlet extends BaseServlet {
 			return;
 		}
 		
-		favoriteService.addFavorite(rid,uid);
+		favoriteService.addFavorite(rid,uid,flag);
 	}
 	
 	public void findCollect(HttpServletRequest request, HttpServletResponse response)

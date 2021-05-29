@@ -27,7 +27,7 @@ public class UserServiceImp implements UserService {
 		dao.save(user);
 		
 		//发送激活码
-		String info = "<a href = 'http://localhost/heima1/user/active&code="+user.getCode()+"'>点击激活【黑马旅游网账号】</a>";
+		String info = "<a href = 'bs/user/active&code="+user.getCode()+"'>点击激活【旅游网账号】</a>";
 		MailUtils.sendMail(user.getEmail(), info,"激活");			
 		return true;
 	}
@@ -56,5 +56,10 @@ public class UserServiceImp implements UserService {
 		// TODO Auto-generated method stub
 		return dao.findByUsernameAndPasssword(user);
 	}
+
+    @Override
+    public int updateUserInfo(User user){
+        return dao.updateUserInfo(user);
+    }
 
 }

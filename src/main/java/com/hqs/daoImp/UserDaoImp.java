@@ -73,5 +73,15 @@ public class UserDaoImp implements UserDao {
 		return u;
 	}
 
+    @Override
+    public int updateUserInfo(User user){
+        sql = "update tab_user set username = ?,password = ?" +
+                " ,name = ?,birthday = ?,sex = ?" +
+                " ,telephone = ?,email = ?" +
+                " where uid = ?";
+        return template.update(sql,user.getUsername(),user.getPassword(),user.getName(),user.getBirthday()
+            ,user.getSex(), user.getTelephone(),user.getEmail(),user.getUid());
+    }
+
 }
  

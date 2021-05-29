@@ -10,4 +10,5 @@ public interface UserService {
 
 	User findUser(User user);
 
+    int updateUserInfo(User user);
 }

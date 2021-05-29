@@ -3,6 +3,7 @@ package com.hqs.daoImp;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.hqs.domain.Product;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -60,5 +61,21 @@ public class RouteDaoImp implements RouteDao {
 		sql = "select * from tab_route where rid = ?";
 		return template.queryForObject(sql, new BeanPropertyRowMapper<Route>(Route.class),rid);
 	}
+
+    @Override
+    public List<Product> findAllProduct(int cid, int start, int numOfPage, String rname){
+        sql = "select * from ssm.product where 1 = 1 ";
+        StringBuilder builder = new StringBuilder(sql);
+        List list = new ArrayList();
+        if(rname != null && rname.length() > 0) {
+            builder.append("and productName like ? ");
+            list.add("%"+rname+"%");
+        }
+        builder.append("limit ?, ? ");
+        list.add(start);
+        list.add(numOfPage);
+        sql = builder.toString();
+        return template.query(sql, new BeanPropertyRowMapper<Product>(Product.class),list.toArray());
+    }
 
 }

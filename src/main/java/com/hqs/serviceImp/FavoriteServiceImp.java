@@ -32,9 +32,13 @@ public class FavoriteServiceImp implements FavoriteService {
 	}
 
 	@Override
-	public void addFavorite(String rid, int uid) {
+	public void addFavorite(String rid, int uid, boolean flag) {
 		// TODO Auto-generated method stub
-		favoriteDao.addFavoriteByUidAndRid(uid, Integer.parseInt(rid));
+        if(flag){
+            favoriteDao.addFavoriteByUidAndRid(uid, Integer.parseInt(rid));
+        }else{
+            favoriteDao.deleteFavoriteByUidAndRid(uid, Integer.parseInt(rid));
+        }
 	}
 
 	@Override

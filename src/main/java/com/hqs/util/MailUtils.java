@@ -69,7 +69,7 @@ public final class MailUtils {
     }
 
     public static void main(String[] args) throws Exception { // 做测试用
-        MailUtils.sendMail("614149475@qq.com","<a href='http://localhost:8080:heima1/register.html'>【点击测试】</a>","测试邮件");
+        MailUtils.sendMail("614149475@qq.com","<a href='http://localhost:8080:bs/register.html'>【点击测试】</a>","测试邮件");
         System.out.println("发送成功");
     }
 

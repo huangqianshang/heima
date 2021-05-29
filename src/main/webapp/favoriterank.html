@@ -22,7 +22,7 @@
        });
        
        function load_price(name_xian,price1,price2,currentPage){
-    	   $.post("route/QueryByPrice",{name:name_xian,price1:price1,price2:price2,currentPage},function(data){
+    	   $.post("route/QueryByPrice",{name:name_xian,price1:price1,price2:price2,currentPage:currentPage},function(data){
 			   var show_favorite = '';
 	   		   
 	   		   if(currentPage == null){
@@ -117,7 +117,7 @@
                     </li>
 		   	   */
 	function load(currentPage){
-   	   $.post("route/listFavorite",{currentPage:currentPage},function(data){
+   	   $.post("route/listFavorite",{currentPage:currentPage,pageSize:2},function(data){
    		   var show_favorite = '';
    		   
    		   if(currentPage == null){

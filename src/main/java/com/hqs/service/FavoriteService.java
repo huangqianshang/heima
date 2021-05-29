@@ -17,7 +17,7 @@ public interface FavoriteService {
 	 * @param rid
 	 * @param uid
 	 */
-	void addFavorite(String rid, int uid);
+	void addFavorite(String rid, int uid, boolean flag);
 
 	/**
 	 * 查找收藏数

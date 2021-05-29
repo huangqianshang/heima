@@ -19,7 +19,15 @@ public interface FavoriteDao {
 	 * @param uid
 	 * @param rid
 	 */
-	void addFavoriteByUidAndRid(int uid, int rid);
+	int addFavoriteByUidAndRid(int uid, int rid);
+
+    /**
+     * 取消收藏
+     * 从数据库删除
+     * @param uid
+     * @param rid
+     */
+    int deleteFavoriteByUidAndRid(int uid, int rid);
 
 	/**
 	 * 查找rid相同的所有个数

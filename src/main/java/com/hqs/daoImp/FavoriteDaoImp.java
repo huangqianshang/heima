@@ -25,11 +25,18 @@ public class FavoriteDaoImp implements FavoriteDao {
 	}
 
 	@Override
-	public void addFavoriteByUidAndRid(int uid, int rid) {
+	public int addFavoriteByUidAndRid(int uid, int rid) {
 		// TODO Auto-generated method stub
 		sql = "insert into tab_favorite values (?,?,?)";
-		template.update(sql,rid,new Date(),uid);
+		return template.update(sql,rid,new Date(),uid);
 	}
+
+    @Override
+    public int deleteFavoriteByUidAndRid(int uid, int rid) {
+        // TODO Auto-generated method stub
+        sql = "delete from tab_favorite where uid = ? and rid = ?";
+        return template.update(sql,uid,rid);
+    }
 
 	@Override
 	public int findAllByRid(int rid) {

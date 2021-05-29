@@ -13,6 +13,9 @@
            .tab-content {
             margin-bottom: 36px;
            }
+           a:hover{
+               text-decoration: none;
+           }
        </style>
        <script src="js/jquery-3.3.1.js"></script>
        <script src="js/getParameter.js"></script>
@@ -31,7 +34,7 @@
 			       </a>
 		   	   </div>*/
 	function load(currentPage){
-   	   $.post("route/findFavorite",{currentPage:currentPage},function(data){
+   	   $.post("route/findFavorite",{currentPage:currentPage,pageSize:2},function(data){
    		   var show_favorite = '';
    		   for(var i = 0; i < data.list.length; i++){
    			show_favorite +='<div class="col-md-3">'+

@@ -12,4 +12,6 @@ public interface UserDao {
 	void updateStatus(User user);
 
 	User findByUsernameAndPasssword(User user);
+
+    int updateUserInfo(User user);
 }

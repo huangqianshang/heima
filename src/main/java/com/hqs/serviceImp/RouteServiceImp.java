@@ -8,10 +8,7 @@ import com.hqs.dao.SellerDao;
 import com.hqs.daoImp.RouteDaoImp;
 import com.hqs.daoImp.RouteImgDaoImp;
 import com.hqs.daoImp.SellerDaoImp;
-import com.hqs.domain.PageBean;
-import com.hqs.domain.Route;
-import com.hqs.domain.RouteImg;
-import com.hqs.domain.Seller;
+import com.hqs.domain.*;
 import com.hqs.service.RouteService;
 
 public class RouteServiceImp implements RouteService {
@@ -58,5 +55,30 @@ public class RouteServiceImp implements RouteService {
 		
 		return route;
 	}
+
+    @Override
+    public PageBean<Product> findAllProduct(int cid, int nowPage, int numOfPage, String rname){
+        // TODO Auto-generated method stub
+        PageBean<Product> page = new PageBean<Product>();
+
+        //设置数据总数
+        int total = dao.findAll(cid, rname);
+        page.setTotal(total);
+        //设置每页个数
+        page.setnPage(numOfPage);
+        //设置当前页码
+        page.setNowPageNum(nowPage);
+
+        //查询数据的位置
+        int start = (nowPage-1)*numOfPage;
+
+        //设置总页数
+        int totalPage = total%numOfPage == 0? total/numOfPage: (total/numOfPage)+1;
+        page.setTotalPage(totalPage);
+        //设置显示数据集合
+        page.setList(dao.findAllProduct(cid, start, numOfPage, rname));
+
+        return page;
+    }
 
 }

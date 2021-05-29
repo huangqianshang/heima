@@ -22,7 +22,7 @@ public class BaseServlet extends HttpServlet {
 	 */
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		String url = req.getRequestURI();//   /heima1/user/say
+		String url = req.getRequestURI();//   /bs/user/say
 		//System.out.println(url);
 		String MethodName = url.substring(url.lastIndexOf("/")+1);//  say
 		//System.out.println(MethodName);

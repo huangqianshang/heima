@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
 
+import javax.mail.Session;
 import javax.servlet.ServletException;
 
 import javax.servlet.annotation.WebServlet;
@@ -184,9 +185,21 @@ public class UserServlet extends BaseServlet {
 		request.getSession().invalidate();
 		response.sendRedirect(request.getContextPath()+"/login.html");
 	}
-//	public void run(HttpServletRequest request, HttpServletResponse response)
-//			throws ServletException, IOException {
-//		
-//	}
+
+    public void updateUserInfo(HttpServletRequest request, HttpServletResponse response){
+        User user = (User)request.getSession().getAttribute("user");
+
+        Map<String, String[]> map = request.getParameterMap();
+        try {
+            BeanUtils.populate(user, map);
+        } catch (IllegalAccessException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+        service.updateUserInfo(user);
+    }
 
 }
